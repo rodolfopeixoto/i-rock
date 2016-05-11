@@ -1,5 +1,6 @@
 class AchievementsController < ApplicationController
-  def new
+ 
+ def new
       @achievement = Achievement.new
   end
   
