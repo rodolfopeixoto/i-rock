@@ -1,7 +1,11 @@
-== README
+== What Does Controller Do
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Authenticate and authorize requests
+* Handle models
+* Create response
+** Render Tempalte
+** Respond with requerd format and headers (e.g. JSON)
+** Redirect to another route
 
 Things you may want to cover:
 
