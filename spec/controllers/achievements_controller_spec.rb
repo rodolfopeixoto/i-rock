@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe AchievementsController do
 
-  describe "guest user" do  
+  shared_examples "public access to achievements" do
     
     describe "GET index" do
       
@@ -32,10 +32,14 @@ describe AchievementsController do
         get :show, id: achievement
         expect(assigns(:achievement)).to eq(achievement)
       end
+    end    
 
-    end
+  end
 
-        
+  describe "guest user" do 
+
+    it_behaves_like "public access to achievements" #call share_examples 
+            
     describe "GET new" do
        it "redirects to login page" do
          get :new
@@ -77,13 +81,15 @@ describe AchievementsController do
   end
 
   describe "authenticated user" do
+
     let(:user) { FactoryGirl.create(:user) }
 
     before do
       sign_in(user)
     end
 
- #######
+
+    it_behaves_like "public access to achievements" #call share_examples
 
     describe "GET index" do
       
@@ -188,7 +194,6 @@ describe AchievementsController do
           expect(response).to redirect_to(achievements_path)
         end
       end
-
     end
 
     context "is the owner of the achievement" do
@@ -258,11 +263,7 @@ describe AchievementsController do
           expect(Achievement.exists?(achievement.id)).to be_falsy
         end
       end
-
     end
-
-
- #######   
  
 
   end
