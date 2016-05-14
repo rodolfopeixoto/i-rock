@@ -1,18 +1,34 @@
 == What Does Controller Do
 
 * Authenticate and authorize requests
+
 * Handle models
+
 * Create response
+
 ** Render Tempalte
+
 ** Respond with requerd format and headers (e.g. JSON)
+
 ** Redirect to another route
 
-What Do We Need To Test
+== What Do We Need To Test
 
 * Authentication
 * Authorization
 * Response
 * Data
+********************
+== Test Authentication
+
+== Roles
+
+* Guest User
+ ** index, show
+ * User
+ ** new, create
+ * Owner
+ ** edit, update, destroy
 
 
 
