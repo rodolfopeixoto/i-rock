@@ -7,7 +7,14 @@
 ** Respond with requerd format and headers (e.g. JSON)
 ** Redirect to another route
 
-Things you may want to cover:
+What Do We Need To Test
+
+* Authentication
+* Authorization
+* Response
+* Data
+
+
 
 * Ruby version
 

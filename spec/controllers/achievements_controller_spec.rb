@@ -1,6 +1,37 @@
 require 'rails_helper'
 
 describe AchievementsController do
+  
+  describe "GET index" do
+    it "renders :index template" do
+    	get :index
+    	expect(response).to render_template(:index)
+    end
+
+    it "assigns only public achievement to template" do
+    	public_achievement = FactoryGirl.create(:public_achievement)
+    	private_achievement = FactoryGirl.create(:private_achievement)
+    	get :index
+    	expect(assigns(:achievements)).to match_array([public_achievement])
+    end
+  end
+
+  describe "GET edit" do
+   
+   let(:achievement){ FactoryGirl.create(:public_achievement) }
+
+    it "renders :edit template" do
+      get :edit, id: achievement
+      expect(response).to render_template(:edit)
+    end
+
+    it "assigns the requested achievement to template" do
+    	get :edit, id: achievement
+    	expect(assigns(:achievement)).to eq(achievement)
+    end
+  end
+
+
   describe "GET new" do
     it "renders :new template" do
       # get post put delete verboes request
