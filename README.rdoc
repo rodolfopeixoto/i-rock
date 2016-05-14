@@ -18,7 +18,7 @@
 * Authorization
 * Response
 * Data
-********************
+
 == Test Authentication
 
 == Roles
@@ -32,7 +32,11 @@
  * Owner
  <tt> edit, update, destroy</tt>
 
-
+== Model Responsibilities
+* Validations
+* Associations
+* DB Queries
+* Business Logic
 
 
 * Ruby version
