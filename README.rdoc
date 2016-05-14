@@ -24,15 +24,21 @@
 == Roles
 
 * Guest User
- ** index, show
+<tt> index, show</tt>
+
  * User
- ** new, create
+<tt> new, create</tt>
+
  * Owner
- ** edit, update, destroy
+ <tt> edit, update, destroy</tt>
+ **
 
 
 
 * Ruby version
+<tt>ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]</tt> 
+* Rails
+ <tt>Rails 4.2.5</tt>
 
 * System dependencies
 
