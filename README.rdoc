@@ -41,6 +41,46 @@
 == Gemfile 'shoulda-matchers'
 * in one line your to do a lot things
 
+== OverView
+* Mocks and stubs
+* Dependency injection
+* Query and command messages
+* Non-rails demo
+* Test controllers in isolation
+
+== Dependencies
+* FakeDie 
+
+== Dependecy Injection
+
+  class Character
+    def initialize
+      @strength = 5
+    end
+
+    def climb
+     die = Die.new
+     die.roll + @strength
+    end
+  end
+
+
+   class Character
+    def initialize(die)
+      @strength = 5
+      @die = die
+    end
+
+    def climb 
+     @die.roll + @strength
+    end
+  end
+
+== Two Types of Messages
+* Query - STUB [ CHARACTER  ] -> ROLL  <- 5[ FAKEDIE  allow(die).to receive(:roll) { 5 }]
+
+* COMMAND MOCK [ Character  ] -> Log [ FakeLogger expect(logger).to receive(:log) ]
+
 
 * Ruby version
 <tt>ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]</tt> 
