@@ -35,4 +35,4 @@ end
 
 gem 'web-console', group: :development
 gem 'devise'
-
+ gem 'carrierwave'
