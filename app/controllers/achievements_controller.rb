@@ -15,7 +15,14 @@ class AchievementsController < ApplicationController
   def create
     service = CreateAchievement.new(params[:achievement], current_user)
     service.create
-    render nothing: true
+    if service.created?
+      UserMailer.achievement_created(current_user.email, @achievement.id).deliver_now
+      redirect_to achievement_path(service.achievement)
+    else
+      #render nothing: true
+      @achievement = service.achievement
+      render :new
+    end
   end
 
   def edit

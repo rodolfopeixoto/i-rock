@@ -81,6 +81,15 @@
 
 * COMMAND MOCK [ Character  ] -> Log [ FakeLogger expect(logger).to receive(:log) ]
 
+== Summary
+ * Stub dependencies
+ * Dependency injection
+ * Stub query messages
+ * Mock command messages
+
+
+ == Testing Email
+
 
 * Ruby version
 <tt>ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]</tt> 
