@@ -13,7 +13,7 @@ feature 'create new achievement' do
       login_form.visit_page.login_as(user)
     end
   
-  scenario 'create new achievement with valid data' do
+  scenario 'create new achievement with valid data', :vcr do
     new_achievement_form = NewAchievementForm.new
     new_achievement_form.visit_page.fill_in_with(
          title: 'Read a book',
@@ -26,7 +26,8 @@ feature 'create new achievement' do
       expect(Achievement.last.cover_image_identifier).to eq('cover_image.png')
       expect(page).to have_content('Achievement has been created')
       expect(Achievement.last.title).to eq('Read a book')
- 
+      expect(page).to have_content("We tweeted for you! https://twitter.com")
+
   end
   
   scenario 'cannot create achievement with invalid data' do

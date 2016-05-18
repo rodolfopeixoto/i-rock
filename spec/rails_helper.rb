@@ -5,7 +5,14 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'devise'
- 
+require 'vcr'
+
+VCR.configure do |c|
+	c.cassette_library_dir = 'spec/cassettes'
+	c.hook_into :webmock
+  c.configure_rspec_metadata!
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

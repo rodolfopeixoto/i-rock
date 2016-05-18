@@ -93,7 +93,16 @@
 
  == Testing upload
 
+ gem 'carrierwave'
 
+
+== Testing Third-party API
+ = Three Approaches
+
+ Full integration
+ Mock everything
+ Integration caching
+ 
 * Ruby version
 <tt>ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]</tt> 
 * Rails

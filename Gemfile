@@ -31,8 +31,11 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'web-console', group: :development
 gem 'devise'
- gem 'carrierwave'
+gem 'carrierwave'
+gem 'twitter'

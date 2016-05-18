@@ -8,7 +8,9 @@ class Achievement < ActiveRecord::Base
         scope: :user_id,
         message: "you can't have two achievements with the same title"
     }
-     enum privacy: [:public_access, :private_access, :friend_access]
+
+  enum privacy: [:public_access, :private_access, :friend_access]
+  mount_uploader :cover_image, CoverImageUploader
 
   def description_html
     Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description)
