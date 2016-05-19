@@ -108,6 +108,13 @@
  Setup
  API request with custom headers
  Test JSON response
+
+ * gem 'active_model,serializers', '0.10.0.rc2'
+
+ rails g serializer Achievement
+
+
+ ==  Test-drive Complete feature
  
 * Ruby version
 <tt>ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]</tt> 

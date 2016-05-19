@@ -1,6 +1,7 @@
 class Achievement < ActiveRecord::Base
     
     belongs_to :user
+    has_many :encouragements
  
     validates :title, presence: true 
     validates :user, presence: true

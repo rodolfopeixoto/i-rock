@@ -39,3 +39,4 @@ gem 'web-console', group: :development
 gem 'devise'
 gem 'carrierwave'
 gem 'twitter'
+gem 'active_model_serializers', '0.10.0.rc2'
