@@ -14,8 +14,11 @@ class EncouragementsController < ApplicationController
         achievement: @achievement
       ))
 
-    @encouragement.save
-    redirect_to achievement_path(@achievement), notice: 'Thank you for encouragement'
+    if @encouragement.save
+      redirect_to achievement_path(@achievement), notice: 'Thank you for encouragement'
+    else
+      render :new
+    end
   end
 
  private

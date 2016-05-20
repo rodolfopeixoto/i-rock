@@ -89,7 +89,12 @@ RSpec.describe EncouragementsController do
         end
       end
       context 'invalid data' do
-        it 'renders :new template'
+          let(:invalid_params){ FactoryGirl.attributes_for(:encouragement, message: nil) }
+        it 'renders :new template' do
+          post :create, achievement_id: achievement.id, encouragement: invalid_params
+          expect(response).to render_template(:new)
+
+        end
       end
     end
 
