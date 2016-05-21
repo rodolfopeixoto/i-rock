@@ -141,3 +141,19 @@
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+HAML
+
+%h1= @achievement.title
+%div
+  = @achievement.description_html.html_safe
+.encouragement
+  %h2
+    Encouragements
+    %span#encouragement-quantity= @achievement.encouragements.count
+  %ul
+    - @achievement.encouragements.each do |enc|
+      %li
+        Encouragement left by #{enc.user.email}: #{enc.message}
+  = link_to 'Encourage', new_achievement_encouragement_path(@achievement), id: 'encourage-button'

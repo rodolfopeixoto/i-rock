@@ -26,7 +26,6 @@ RSpec.configure do |config|
  
   config.filter_rails_from_backtrace!
  
-  config.include Devise::TestHelpers, type: :controller
-    config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include Devise::TestHelpers, type: :controller 
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 end
