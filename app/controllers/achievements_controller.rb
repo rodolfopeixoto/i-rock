@@ -1,26 +1,21 @@
 class AchievementsController < ApplicationController
+  before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :owners_only, only: [ :edit, :update, :destroy ]
 
- before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
- before_action :owners_only, only: [:show, :edit, :update, :destroy]
-
- def index
-  @achievements = Achievement.get_public_achievements # all not working test
-
- end
- 
- def new
-      @achievement = Achievement.new
+  def index
+    @achievements = Achievement.public_access
   end
-  
+
+  def new
+    @achievement = Achievement.new
+  end
+
   def create
     @achievement = Achievement.new(achievement_params)
     @achievement.user = current_user
     if @achievement.save
-      UserMailer.achievement_created(current_user.email, @achievement.id).deliver_now
-      tweet = TwitterService.new.tweet(@achievement.title)
-      redirect_to achievement_path(@achievement), notice: "Achievement has been created. We tweeted for you! #{tweet.url}"
+      redirect_to achievement_url(@achievement), notice: 'Achievement has been created'
     else
-      #render nothing: true 
       render :new
     end
   end
@@ -34,24 +29,21 @@ class AchievementsController < ApplicationController
     else
       render :edit
     end
+  end
 
-    # @achievement = Achievement.find(params[:id])
-    # render nothing: true
-  end
-  
   def show
-     @achievement = Achievement.find(params[:id])
+    @achievement = Achievement.find(params[:id])
   end
-  
+
   def destroy
     @achievement.destroy
     redirect_to achievements_path
   end
 
   private
-  
+
   def achievement_params
-    params.require(:achievement).permit(:title, :description, :privacy, :cover_image, :featured )
+    params.require(:achievement).permit(:title, :description, :privacy, :cover_image, :featured)
   end
 
   def owners_only
@@ -60,4 +52,5 @@ class AchievementsController < ApplicationController
       redirect_to achievements_path
     end
   end
+
 end

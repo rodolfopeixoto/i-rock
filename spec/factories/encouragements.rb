@@ -4,4 +4,5 @@ FactoryGirl.define do
     achievement
     message "MyString"
   end
+
 end

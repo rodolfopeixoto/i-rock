@@ -3,4 +3,5 @@ FactoryGirl.define do
     sequence(:email) { |n| "email#{n}@email.com" }
     password "secretsecret"
   end
+
 end

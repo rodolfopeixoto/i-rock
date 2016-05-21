@@ -2,8 +2,8 @@ class LoginForm
   include Capybara::DSL
 
   def visit_page
-  	visit('/users/sign_in')
-  	self
+    visit('/users/sign_in')
+    self
   end
 
   def login_as(user)
@@ -12,5 +12,4 @@ class LoginForm
     click_on("Log in")
     self
   end
-
 end
